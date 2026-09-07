@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import ThemeToggle from '../components/ThemeToggle.astro';
+import LanguageSelector from '../components/LanguageSelector.astro';
 
 interface Props { title: string; description: string; }
 const { title, description } = Astro.props;
@@ -12,7 +13,7 @@ const { title, description } = Astro.props;
   <meta name="description" content={description} /><title>{title}</title>
   <script is:inline>const saved = localStorage.getItem('theme'); document.documentElement.dataset.theme = saved ?? (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');</script>
 </head><body>
-  <header class="site-header"><nav class="shell" aria-label="Primary navigation"><a class="site-name" href="/">Ben's Blog</a><div class="nav-links"><a href="/">Home</a><a href="/archive">Archive</a><ThemeToggle /></div></nav></header>
+  <header class="site-header"><nav class="shell" aria-label="Primary navigation"><a class="site-name" href="/">Ben's Blog</a><div class="nav-links"><a href="/" data-i18n="home">Home</a><a href="/archive" data-i18n="archive">Archive</a><LanguageSelector /><ThemeToggle /></div></nav></header>
   <main class="shell"><slot /></main>
-  <footer class="site-footer shell"><span>Thoughtfully made by Ben.</span><a href="https://github.com/littlepig2003">GitHub</a><a href="/rss.xml">RSS</a></footer>
+  <footer class="site-footer shell"><span data-i18n="footer">Thoughtfully made by Ben.</span><a href="https://github.com/littlepig2003">GitHub</a><a href="/rss.xml">RSS</a></footer>
 </body></html>
