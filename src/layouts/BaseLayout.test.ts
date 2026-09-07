@@ -25,4 +25,10 @@ describe('BaseLayout', () => {
     expect(source).toContain('https://t.me/littlepig2003');
     expect(source).toContain('Copyright © 2026–${currentYear}');
   });
+
+  it('places the copyright in the footer center region', async () => {
+    const source = await readFile(new URL('./BaseLayout.astro', import.meta.url), 'utf8');
+
+    expect(source).toContain('<div class="footer-center"><span>{copyright}</span></div>');
+  });
 });
