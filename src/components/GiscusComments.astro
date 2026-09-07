@@ -1,8 +1,12 @@
 ---
 interface Props { title: string; }
 const { title } = Astro.props;
-// Fill these after installing the Giscus GitHub App and selecting a Discussions category.
-const giscus = { repo: '', repoId: '', category: '', categoryId: '' };
+const giscus = {
+  repo: 'littlepig2003/bens-blog',
+  repoId: 'R_kgDOUQ41Sg',
+  category: 'General',
+  categoryId: 'DIC_kwDOUQ41Ss4DFDU-',
+};
 const isConfigured = Object.values(giscus).every(Boolean);
 ---
 <section aria-label="Comments" class="comments">
