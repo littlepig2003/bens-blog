@@ -10,7 +10,7 @@ const isConfigured = Object.values(giscus).every(Boolean);
   {isConfigured ? <div class="giscus" data-title={title}></div> : <p>Comments will appear here once GitHub Discussions is connected.</p>}
   <p><a href="https://giscus.app">Discuss this post on GitHub via Giscus</a></p>
 </section>
-{isConfigured && <script define:vars={{ giscus }}>
+{isConfigured && <script is:inline define:vars={{ giscus }}>
   const script = document.createElement('script');
   script.src = 'https://giscus.app/client.js';
   script.async = true;
