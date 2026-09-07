@@ -1,0 +1,8 @@
+---
+import BaseLayout from './BaseLayout.astro';
+interface Props { title: string; description: string; pubDate: Date; tags: string[]; }
+const { title, description, pubDate, tags } = Astro.props;
+---
+<BaseLayout title={`${title} · Ben's Blog`} description={description}>
+  <article class="prose"><header><p><time datetime={pubDate.toISOString()}>{pubDate.toLocaleDateString('en', { year: 'numeric', month: 'long', day: 'numeric' })}</time></p><h1>{title}</h1><p>{description}</p><p>{tags.map((tag) => <a href={`/tags/${encodeURIComponent(tag.toLowerCase())}`}>#{tag} </a>)}</p></header><slot /></article>
+</BaseLayout>

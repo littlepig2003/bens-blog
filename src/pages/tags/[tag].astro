@@ -1,0 +1,8 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getAllTags, isPublicPost, sortPosts } from '../../lib/posts';
+export async function getStaticPaths() { const entries = (await getCollection('blog')).filter(isPublicPost); return getAllTags(entries).map((tag) => ({ params: { tag }, props: { tag, posts: entries.filter((post) => post.data.tags.some((item) => item.toLowerCase() === tag)) } })); }
+const { tag, posts: taggedPosts } = Astro.props;
+---
+<BaseLayout title={`#${tag} · Ben's Blog`} description={`Posts tagged ${tag}.`}><section class="prose"><h1>#{tag}</h1>{sortPosts(taggedPosts).map((post) => <article><h2><a href={`/posts/${post.id}`}>{post.data.title}</a></h2><p>{post.data.description}</p></article>)}</section></BaseLayout>

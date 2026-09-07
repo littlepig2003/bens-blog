@@ -1,9 +1,7 @@
 ---
-import '../styles/global.css';
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { isPublicPost, sortPosts } from '../lib/posts';
+const posts = sortPosts((await getCollection('blog')).filter(isPublicPost));
 ---
-
-<!doctype html>
-<html lang="en">
-  <head><title>Ben's Blog</title></head>
-  <body><main><h1>Ben's Blog</h1></main></body>
-</html>
+<BaseLayout title="Ben's Blog" description="Notes by Ben."><section class="prose"><p>Notes on building, learning, and the things worth keeping.</p><h1>Latest writing</h1>{posts.map((post) => <article><h2><a href={`/posts/${post.id}`}>{post.data.title}</a></h2><p>{post.data.description}</p><time datetime={post.data.pubDate.toISOString()}>{post.data.pubDate.toLocaleDateString('en', { year:'numeric', month:'short', day:'numeric' })}</time></article>)}</section></BaseLayout>
