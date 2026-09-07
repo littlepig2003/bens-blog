@@ -1,9 +1,10 @@
 ---
 import { getCollection, render } from 'astro:content';
 import PostLayout from '../../layouts/PostLayout.astro';
+import GiscusComments from '../../components/GiscusComments.astro';
 import { isPublicPost } from '../../lib/posts';
 export async function getStaticPaths() { return (await getCollection('blog')).filter(isPublicPost).map((post) => ({ params: { slug: post.id }, props: { post } })); }
 const { post } = Astro.props;
 const { Content } = await render(post);
 ---
-<PostLayout {...post.data}><Content /></PostLayout>
+<PostLayout {...post.data}><Content /><GiscusComments title={post.data.title} /></PostLayout>
