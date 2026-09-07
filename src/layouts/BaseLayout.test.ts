@@ -15,7 +15,14 @@ describe('BaseLayout', () => {
     const source = await readFile(new URL('./BaseLayout.astro', import.meta.url), 'utf8');
 
     expect(source).toContain('new Date().getFullYear()');
-    expect(source).toContain('https://x.com/littlepig2003');
+    expect(source).toContain('https://t.me/littlepig2003');
     expect(source).toContain('https://twitter.com/WenZhu0717');
+  });
+
+  it('uses Telegram and keeps both copyright years visible', async () => {
+    const source = await readFile(new URL('./BaseLayout.astro', import.meta.url), 'utf8');
+
+    expect(source).toContain('https://t.me/littlepig2003');
+    expect(source).toContain('Copyright © 2026–${currentYear}');
   });
 });
