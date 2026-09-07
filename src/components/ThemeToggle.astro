@@ -1,0 +1,14 @@
+<button class="theme-toggle" type="button" aria-label="Toggle color theme" data-theme-toggle>
+  Theme
+</button>
+
+<script is:inline>
+  const toggle = document.querySelector('[data-theme-toggle]');
+  const applyTheme = (theme) => {
+    document.documentElement.dataset.theme = theme;
+    localStorage.setItem('theme', theme);
+  };
+  toggle?.addEventListener('click', () => {
+    applyTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark');
+  });
+</script>

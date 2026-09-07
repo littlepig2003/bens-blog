@@ -1,8 +1,8 @@
-:root {
-  color-scheme: light dark;
-}
-
-body {
-  margin: 0;
-  font-family: system-ui, sans-serif;
-}
+:root { --canvas:#f8f6f0; --surface:#fffdf8; --text:#26343a; --muted:#617178; --accent:#0d6462; --border:#dfe4dc; color-scheme:light; font-family:Inter,ui-sans-serif,system-ui,sans-serif; }
+:root[data-theme='dark'] { --canvas:#142124; --surface:#1b2b2e; --text:#eef3ed; --muted:#b9c7c4; --accent:#85d3ca; --border:#385057; color-scheme:dark; }
+* { box-sizing:border-box; } html { background:var(--canvas); } body { margin:0; background:var(--canvas); color:var(--text); line-height:1.65; } a { color:var(--accent); text-underline-offset:.16em; } a:focus-visible,button:focus-visible { outline:3px solid var(--accent); outline-offset:3px; }
+.shell { width:min(100% - 2rem,70rem); margin-inline:auto; } .site-header { border-bottom:1px solid var(--border); } .site-header nav,.nav-links,.site-footer { display:flex; align-items:center; } .site-header nav { justify-content:space-between; gap:1rem; min-height:4.5rem; } .site-name { color:var(--text); font-weight:750; font-size:1.15rem; text-decoration:none; } .nav-links { gap:1rem; }
+.theme-toggle { border:1px solid var(--border); border-radius:999px; padding:.35rem .7rem; color:var(--text); background:transparent; cursor:pointer; } main.shell { min-height:calc(100vh - 10rem); padding-block:4rem; } .site-footer { gap:1rem; padding-block:2rem; border-top:1px solid var(--border); color:var(--muted); font-size:.92rem; } .site-footer span { margin-right:auto; }
+.prose { max-width:44rem; font-family:ui-serif,Georgia,serif; font-size:1.12rem; } .prose h1,.prose h2,.prose h3 { color:var(--text); line-height:1.2; } .prose h1 { font-size:clamp(2.3rem,7vw,4.5rem); letter-spacing:-.05em; } .prose pre { overflow-x:auto; padding:1rem; border-radius:.5rem; background:var(--surface); border:1px solid var(--border); }
+@media (max-width:38rem) { .site-header nav,.site-footer { align-items:flex-start; flex-direction:column; padding-block:1rem; } .site-footer span { margin-right:0; } main.shell { padding-block:2.5rem; } }
+@media (prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto!important; transition-duration:.01ms!important; } }
