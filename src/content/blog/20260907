@@ -1,0 +1,15 @@
+---
+title: 我的第一篇文章
+description: 简短摘要
+pubDate: 2026-09-07
+tags: [随笔, 技术]
+-----
+
+# 第一篇blog
+
+通过Github和cloudflare的pager,用astro框架搭建自己的一个blog,主要用来记录自己偶尔的灵感，方便日后查阅。也希望网友多加交流。
+
+## 小标题
+
+- Markdown 很适合写博客
+- 保存并提交后会自动上线
